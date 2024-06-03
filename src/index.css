@@ -1,0 +1,10 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom, rgba(255, 253, 253, 0), rgba(0, 0, 0, 0.922)), url('./assets/deda54b4cf7020f927_376152628_249e3630c0_b.jpg');
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

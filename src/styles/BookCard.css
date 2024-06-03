@@ -1,0 +1,92 @@
+/* .book-card { border: 1px solid #ccc; 
+    border-radius: 10px; 
+    padding: 20px; 
+    width: 150px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ } 
+ .book-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+ } 
+ .book-card h3 { 
+    font-size: 18px;
+     margin-bottom: 10px;
+      color: #333; 
+} */
+
+/* src/styles/BookCard.css */
+.book-card {
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   background-color: #ffffff;
+   width: 200px;
+   text-align: center;
+   cursor: pointer;
+   transition: transform 0.2s, box-shadow 0.2s;
+   margin-bottom: 20px;
+ }
+ 
+ .book-card h3 {
+   margin: 0;
+   color: #333;
+ }
+ 
+ .book-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .borrow-form {
+   margin-top: 20px;
+   text-align: left;
+ }
+ 
+ .borrow-form label {
+   display: block;
+   margin-bottom: 10px;
+ }
+ 
+ .borrow-form input {
+   width: 100%;
+   padding: 8px;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   border: 1px solid #ced4da;
+   border-radius: 5px;
+ }
+ 
+ .form-actions {
+   display: flex;
+   justify-content: space-between;
+ }
+ 
+ .cancel-button,
+ .borrow-button {
+   padding: 10px 20px;
+   font-size: 16px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ 
+ .cancel-button {
+   background-color: #dc3545;
+   color: #fff;
+ }
+ 
+ .cancel-button:hover {
+   background-color: #c82333;
+ }
+ 
+ .borrow-button {
+   background-color: #28a745;
+   color: #fff;
+ }
+ 
+ .borrow-button:hover {
+   background-color: #218838;
+ }
+ 

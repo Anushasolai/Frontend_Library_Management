@@ -1,0 +1,35 @@
+
+.home-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.welcome-box {
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
+.title {
+  color:black;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ .register-button:hover {
+  background-color: #0056b3;
+} 

@@ -1,0 +1,32 @@
+
+  /* Styles for the admin dashboard container */
+  .admin-dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  /* Styles for the individual cards */
+  .card {
+    width: 150px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+  }
+  
+  .card:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Styles for the card headings */
+  .card h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
