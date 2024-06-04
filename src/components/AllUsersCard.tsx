@@ -1,14 +1,11 @@
-
-
- import '../styles/AllUsersCard.css';
-
+import '../styles/AllUsersCard.css';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import axios from 'axios'; // Import Axios library
+import axios from 'axios'; 
 
-Modal.setAppElement('#root');//-------
+Modal.setAppElement('#root');
 
-// Define an interface for the user
+
 interface User {
     ID: number;
     username: string;
@@ -20,25 +17,24 @@ interface AllUsersCardProps {
 
 
 const AllUsersCard: React.FC<AllUsersCardProps> = ({ onRequestClose }) => {
-    const [users, setUsers] = useState<User[]>([]); // Explicitly type the state
+    const [users, setUsers] = useState<User[]>([]); 
 
     useEffect(() => {
-        // Define a function to fetch data from the backend
+        
         const fetchUsers = async () => {
             try {
-                // Make a GET request to fetch users data from your backend endpoint
+               
                 const response = await axios.get('http://localhost:9082/admin/viewUser');
-                // Set the users state with the data fetched from the backend
+               
                 setUsers(response.data);
             } catch (error) {
-                console.error('Error fetching users:', error.response);
+                console.error('Error fetching users:', error);
             }
         };
 
-        // Call the fetchUsers function when the component mounts
+       
         fetchUsers();
-    }, []); // Pass an empty dependency array to ensure the effect runs only once when the component mounts
-
+    }, []); 
     return (
         <div>
              <Modal
@@ -61,7 +57,7 @@ const AllUsersCard: React.FC<AllUsersCardProps> = ({ onRequestClose }) => {
                     {users.map(user => (
                         <tr key={user.ID}>
                             <td>{user.ID}</td>
-                            <td>{user.username}</td>
+                            <td>{user.username}</td>            
                             
                         </tr>
                     ))}

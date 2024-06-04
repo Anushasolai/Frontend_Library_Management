@@ -17,7 +17,7 @@
 } */
 
 /* src/styles/BookCard.css */
-.book-card {
+/* .book-card {
    padding: 20px;
    border-radius: 10px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -89,4 +89,24 @@
  .borrow-button:hover {
    background-color: #218838;
  }
- 
+ .book-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.borrow-form {
+  margin-top: 10px;
+} */
+
+ .form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-button,
+.borrow-button {
+  padding: 5px 10px;
+  cursor: pointer;
+} 

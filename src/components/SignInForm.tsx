@@ -21,7 +21,7 @@ const SignInForm = () => {
         password,
       });
       const token = response.data
-    //  const  token  = data.token;
+   
       localStorage.setItem("token", token);
       console.log(token);
       
@@ -29,8 +29,7 @@ const SignInForm = () => {
       const decodedToken = jwtDecode<DecodedToken>(token);
       const role = decodedToken.role;
       if (role === "admin") {
-        // const { token } = response.data;
-        // localStorage.setItem("token", token);
+       
         navigate("/admin-dashboard");
       } else {
         navigate("/user-dashboard");
