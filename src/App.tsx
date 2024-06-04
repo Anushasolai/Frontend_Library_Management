@@ -7,6 +7,8 @@ import "./index.css";
 import UserDashboard from "./components/UserDashboard";
 import  AdminDashboard from "./components/AdminDashboard";
 
+
+
 const App = () => {
   return (
     <Router>
@@ -14,8 +16,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard onRequestClose={function (): void {
+          throw new Error("Function not implemented.");
+        } } />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        
        
       </Routes>
     </Router>

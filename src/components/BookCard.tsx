@@ -1,7 +1,5 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/BookCard.css';
-
 interface Book {
   id: number;
   name: string;
@@ -16,8 +14,8 @@ interface BookCardProps {
 }
 
 const BookCard: React.FC<BookCardProps> = ({ book, showForm, onViewDetails, onCancel, onBorrow }) => {
-  const [startDate, setStartDate] = React.useState('');
-  const [endDate, setEndDate] = React.useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const handleBorrow = () => {
     onBorrow(book.id, startDate, endDate);
@@ -57,3 +55,4 @@ const BookCard: React.FC<BookCardProps> = ({ book, showForm, onViewDetails, onCa
 };
 
 export default BookCard;
+

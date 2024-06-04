@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import axios from "axios";
-import "../styles/UserBookRelationCard.css";
+
 
 interface Book {
   ID: number;
@@ -11,7 +11,7 @@ interface User {
   ID: number;
   username: string;
 }
-interface UserBookRelation {
+interface BookRelation{
   UBID: number;
   username: User;
   bookname: Book;
@@ -19,16 +19,16 @@ interface UserBookRelation {
   startdate: string;
 }
 
-interface UserBookRelationCardProps {
+interface BookRelationCardProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-const UserBookRelationCard: React.FC<UserBookRelationCardProps> = ({
+const BookRelationCard: React.FC<BookRelationCardProps> = ({
   isOpen,
   onRequestClose,
 }) => {
-  const [relations, setRelations] = useState<UserBookRelation[]>([]);
+  const [relations, setRelations] = useState<BookRelation[]>([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -50,13 +50,38 @@ const UserBookRelationCard: React.FC<UserBookRelationCardProps> = ({
     fetchBooks();
   }, []);
 
+  const handleDeleteRelation = (userId: number, bookId: number) => {
+    axios
+      .delete(`http://localhost:9082/admin/deleteUB/${userId}`)
+      .then(() => {
+        setRelations(
+          relations.filter(
+            (rel) => !(rel.username.ID === userId && rel.bookname.ID === bookId)
+          )
+        );
+      })
+      .catch((error) => console.error("Error deleting relation:", error));
+  };
 
+  const handleUpdateEndDate = (
+    usernameId: number,
+    booknameId: number,
+    newEndDate: string
+  ) => {
+    setRelations(
+      relations.map((rel) =>
+        rel.username.ID === usernameId && rel.bookname.ID === booknameId
+          ? { ...rel, enddate: newEndDate }
+          : rel
+      )
+    );
+  };
 
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="User-Book Relation"
+      contentLabel="BookRelation"
       className="modal"
       overlayClassName="overlay"
     >
@@ -65,7 +90,7 @@ const UserBookRelationCard: React.FC<UserBookRelationCardProps> = ({
         <thead>
           <tr>
             <th>Username</th>
-            <th>BookID</th>
+            <th>Book</th>
             <th>Start Date</th>
             <th>End Date</th>
           </tr>
@@ -77,7 +102,26 @@ const UserBookRelationCard: React.FC<UserBookRelationCardProps> = ({
               <td>{rel.bookname.bookname}</td>
               <td>{rel.startdate}</td>
               <td>{rel.enddate}</td>
-             
+              <td>
+                 <button
+                  onClick={() =>
+                    handleDeleteRelation(rel.username.ID, rel.bookname.ID)
+                  }
+                >
+                  Delete
+                </button> 
+                 <button
+                  onClick={() =>
+                    handleUpdateEndDate(
+                      rel.username.ID,
+                      rel.bookname.ID,
+                      prompt("Enter new end date:", rel.enddate) || rel.enddate
+                    )
+                  }
+                >
+                  Update
+                </button> 
+              </td> 
             </tr>
           ))}
         </tbody>
@@ -89,6 +133,5 @@ const UserBookRelationCard: React.FC<UserBookRelationCardProps> = ({
   );
 };
 
-export default UserBookRelationCard;
-
+export default BookRelationCard;
 

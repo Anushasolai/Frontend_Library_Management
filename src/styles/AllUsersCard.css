@@ -1,4 +1,4 @@
-/* AllUsersCard.css */
+/* AllUsersCard.css
 
 .modal {
     position: fixed;
@@ -36,8 +36,8 @@
 }
 
 .user-table th {
-    background-color:wheat;
-}
+    background-color:wheat; */
+/* }
 
 .user-table td {
     text-align: left;
@@ -58,4 +58,14 @@
 }
 h2{
     text-align: center;
-}
+} */
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .book-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  

@@ -31,7 +31,7 @@ const AllBooksCard: React.FC<AllBooksCardProps> = ({ onRequestClose }) => {
         });
         setBooks(response.data);
       } catch (error) {
-        console.error("Error fetching books:", error.response);
+        console.error("Error fetching books:", error);
       }
     };
     fetchBooks();
@@ -53,9 +53,9 @@ const AllBooksCard: React.FC<AllBooksCardProps> = ({ onRequestClose }) => {
         }
       );
       setBooks((prevBooks) => [...prevBooks, response.data]);
-     //  setNewBookName(""); // Clear input field after adding book
+    
     } catch (error) {
-      console.error("Error adding book:", error.response);
+      console.error("Error adding book:", error);
     }
   };
 
@@ -69,7 +69,7 @@ const AllBooksCard: React.FC<AllBooksCardProps> = ({ onRequestClose }) => {
       });
       setBooks(books.filter((book) => book.ID !== id));
     } catch (error) {
-      console.error("Error deleting book:", error.response);
+      console.error("Error deleting book:", error);
     }
   };
 
@@ -109,7 +109,7 @@ const AllBooksCard: React.FC<AllBooksCardProps> = ({ onRequestClose }) => {
           type="text"
           placeholder="Book Name"
           value={newBookName}
-          onChange={(e) => setNewBookName(e.target.value)} // Update the newBookName state on change
+          onChange={(e) => setNewBookName(e.target.value)} 
         />
         <button onClick={handleAddBook}>Add Book</button>
       </div>
